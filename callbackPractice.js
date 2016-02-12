@@ -180,16 +180,9 @@ each(names, function(item, indice){
 
 
  //code here for getUserById
-var users = function(arr, callback) {
-    for( var i = 0; i < arr.length; i++ ) {
-        var obj = arr[ i ];
-        for (var prop in obj) {
-            if(obj.hasOwnProperty(prop) === '16t'){
-                callback(obj[prop]);
-            }
-        }
-    }
- };
+
+
+
 var users = [
   {
     id: '12d',
@@ -210,6 +203,15 @@ var users = [
     address: '192 East 32 North'
   },
 ];
+
+var getUserById = function(arr, id, callback) {
+    for( var i = 0; i < arr.length; i++ ) {
+        var obj = arr[i];
+            if(obj.id === '16t'){
+                callback(obj);
+        }
+    }
+ };
 
 getUserById(users, '16t', function(user){
   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address);
